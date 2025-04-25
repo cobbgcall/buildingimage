@@ -7,4 +7,3 @@ steps:
   args: ['push', 'europe-southwest1-docker.pkg.dev/$PROJECT_ID/gcallcloud:$COMMIT_SHA']
 serviceAccount: 'cloudbuildsa@mimetic-retina-410109.iam.gserviceaccount.com'
 logsBucket: 'gs://cloudbuild-mimetic-retina-410109'
-  
