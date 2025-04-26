@@ -1,9 +1,9 @@
 steps:
   # Build container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag', 'us-east1-docker.pkg.dev/$PROJECT_ID/cobbgcall:$COMMIT_SHA', '.']
+  args: ['build', '--tag', 'us-central1-docker.pkg.dev/$PROJECT_ID/gcallcloud:$COMMIT_SHA', '.']
   # Push container image to Google Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-east1-docker.pkg.dev/$PROJECT_ID/cobbgcall:$COMMIT_SHA']
+  args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/gcallcloud:$COMMIT_SHA']
 serviceAccount: 'cloudbuildsa@mimetic-retina-410109.iam.gserviceaccount.com'
-logsBucket: 'gs://cloudbuild-mimetic-retina-410109'
+logsBucket: 'gs://building-mimetic-retina-410109'
