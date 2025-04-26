@@ -8,12 +8,15 @@ steps:
 
   # Waiting for approval
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['beta', 'builds', 'wait', '$BUILD_ID', '--approval-prompt', 'manual']
+  entrypoint: 'bash'
+  args: ['-c', 'gcloud builds describe $$BUILD_ID --format="value(status)" | grep -q "SUCCESS" || exit 1; gcloud builds approve $$BUILD_ID --region=us-central1']
+
   # Push container image new verison to Google Container Registry
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/gcallcloud/flaskapp:$COMMIT_SHA']
   # Push container image latest tag
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/gcallcloud/flaskapp:latest']
+  # SA definition and Logs storage
 serviceAccount: 'cloudbuildsa@mimetic-retina-410109.iam.gserviceaccount.com'
 logsBucket: 'gs://building-mimetic-retina-410109'
