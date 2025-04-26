@@ -8,7 +8,7 @@ steps:
 
   # Waiting for approval
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['beta', 'builds', 'wait', '$BUILD_ID', '--approval-prompt']
+  args: ['beta', 'builds', 'wait', '$BUILD_ID', '--approval-prompt', 'manual']
   # Push container image new verison to Google Container Registry
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/gcallcloud/flaskapp:$COMMIT_SHA']
