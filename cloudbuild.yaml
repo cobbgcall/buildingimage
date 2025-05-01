@@ -15,4 +15,4 @@ steps:
 serviceAccount: 'cloudbuildsa@mimetic-retina-410109.iam.gserviceaccount.com'
 logsBucket: 'gs://building-mimetic-retina-410109'
 options:
-  pubsubTopic: 'projects/mimetic-retina-410109/topics/builtsdone'
+  pubsubTopic: 'projects/mimetic-retina-410109/topics/builsdone'
