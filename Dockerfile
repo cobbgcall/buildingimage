@@ -7,4 +7,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0"]
+CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0", "--port=8080"]
